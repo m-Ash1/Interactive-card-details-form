@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Grotesk", sans-serif;
+}
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.background {
+  z-index: -1;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+  }
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 15em;
+
+  .cards {
+    .card {
+      position: relative;
+      .photo-placeholder {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: white;
+        left: 2em;
+        top: 2em;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 40%;
+          height: 40%;
+          border-radius: 50%;
+          left: 70px;
+          border: 1px solid white;
+          top: 50%;
+          transform: translate(0, -50%);
+        }
+      }
+
+      &.face {
+        margin-bottom: 2em;
+        .card-number {
+          position: absolute;
+          bottom: 2.6em;
+          left: 30px;
+          font-size: 28px;
+          letter-spacing: 4px;
+          color: white;
+          font-weight: 500;
+        }
+        .holder-name,
+        .date {
+          position: absolute;
+          bottom: 2em;
+          color: hsl(270, 3%, 87%);
+          font-size: 15px;
+          letter-spacing: 2px;
+        }
+        .holder-name {
+          left: 30px;
+        }
+        .date {
+          left: 23em;
+        }
+      }
+      &.back {
+        margin-left: 5em;
+
+        .cvc {
+          position: absolute;
+          bottom: 120px;
+          left: 360px;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .form {
+    width: 400px;
+    margin: 5em 3em;
+    .input {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      label {
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+        color: hsl(278, 68%, 11%);
+      }
+      input {
+        outline: none;
+        border: 1px solid rgba(0, 0, 0, 0.123);
+        padding: 15px;
+        border-radius: 7px;
+        &::placeholder {
+          color: rgba(0, 0, 0, 0.568);
+        }
+      }
+    }
+    .inline-input {
+      display: flex;
+      gap: 0.5em;
+      .date {
+        width: 65px;
+      }
+      .cvc {
+        margin-left: 1em;
+        width: 100%;
+      }
+    }
+    button {
+        margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 7px;
+      background-color: hsl(278, 68%, 11%);
+      color: white;
+    }
+  }
+}
